@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "jsdoc": "^4.0.5"
+  },
+  "dependencies": {
+    "save-dev": "^0.0.1-security",
+    "typescript": "^5.9.3"
+  }
+}
