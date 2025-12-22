@@ -12,8 +12,9 @@ botonReset?.addEventListener('click', onResetNumber)
 
 function onIncrementNumber(){
     /**
-     *  
+     *  @type {any} valor
      * */
+    // @ts-ignore
     let valor = numeroContador.innerText
     valor++
     valor= Number(numeroContador?.innerText)
@@ -26,6 +27,7 @@ function onDecrementNumber(){
     
     if(valor > 0){
        valor--
+       // @ts-ignore
        numeroContador.textContent = valor
     }
 
@@ -35,6 +37,7 @@ function onResetNumber(){
     /**
      * @type {number}
      */
+    // @ts-ignore
     numeroContador.innerText = 0
 
 }
