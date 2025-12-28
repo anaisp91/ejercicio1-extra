@@ -1,3 +1,5 @@
+//@ts-check
+
 import {CounterStorage} from "./LocalStore.js"
 
 document.addEventListener('DOMContentLoaded', () =>{
@@ -12,9 +14,14 @@ const numeroContador = document.getElementById('numeroContador')
 //Instancia de la clase
 const storage = new CounterStorage('contador')
 
-//estado inicial
+/** @type {number} */
+let contador = storage.get()
 
+if(!numeroContador){
+    throw new Error ('No se ha encontrado el número contador')
+}
 
+numeroContador.textContent = String(contador)
 
 
 botonIncremento?.addEventListener('click', onIncrementNumber)
@@ -22,9 +29,6 @@ botonDecremento?.addEventListener('click', onDecrementNumber)
 botonReset?.addEventListener('click', onResetNumber)
 
 
-
-let contador = storage.get()
-numeroContador.textContent = contador
 
 function onIncrementNumber(){
    contador++
@@ -55,7 +59,10 @@ function resetear (){
 }
 
 function actualizar (){
-    numeroContador.textContent = contador
+    if(!numeroContador){
+        throw new Error ('No se ha encontardo el numero contador')
+    }
+    numeroContador.textContent = String(contador)
     storage.set(contador)
 }
 
